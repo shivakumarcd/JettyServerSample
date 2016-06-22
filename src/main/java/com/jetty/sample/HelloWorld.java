@@ -18,10 +18,16 @@ public class HelloWorld extends AbstractHandler
                        HttpServletResponse response) 
         throws IOException, ServletException
     {
+    	System.out.println("target" + target);
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
-        response.getWriter().println("<h1>Hello World</h1>");
+        if(target.contains("/a"))
+        	response.getWriter().println("<h1>Hello World</h1> -------a");
+        else if(target.contains("/b"))
+        	response.getWriter().println("<h1>Hello World</h1> -------b");
+        else
+        	response.getWriter().println("<h1>Hello World</h1>");
     }
  
     public static void main(String[] args) throws Exception
